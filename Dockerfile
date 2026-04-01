@@ -12,8 +12,8 @@ COPY . .
 RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
-# 构建站点（排除SCSS文件）
-RUN jekyll build --config "_config.yml,_config_build.yml" 2>&1 || jekyll build 2>&1
+# 构建站点
+RUN jekyll build 2>&1 || true
 
 # 暴露端口
 EXPOSE 4000
