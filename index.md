@@ -5,15 +5,15 @@ pagination:
   enabled: true
 ---
 
-# 个人知识库
+<h1>个人知识库</h1>
 
-欢迎来到我的个人知识库！这里存储了我在学习和工作中积累的知识和经验。
+<p>欢迎来到我的个人知识库！这里存储了我在学习和工作中积累的知识和经验。</p>
 
-## 最近更新
+<h2>最近更新</h2>
 
 {% for post in paginator.posts %}
-### [{{ post.title }}]({{ post.url | relative_url }})
-{{ post.date | date: "%Y-%m-%d" }} · {% for cat in post.categories %}`{{ cat }}`{% unless forloop.last %} · {% endunless %}{% endfor %}
+<h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+<p>{{ post.date | date: "%Y-%m-%d" }} · {% for cat in post.categories %}<code>{{ cat }}</code>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
 
 {{ post.excerpt }}
 {% endfor %}
@@ -36,14 +36,18 @@ pagination:
 </div>
 {% endif %}
 
-## 分类
+<h2>分类</h2>
 
+<ul>
 {% for category in site.categories %}
-- [{{ category[0] }}]({{ site.baseurl }}/categories/#{{ category[0] | slugize }})
+  <li><a href="{{ site.baseurl }}/categories/#{{ category[0] | slugize }}">{{ category[0] }}</a></li>
 {% endfor %}
+</ul>
 
-## 标签
+<h2>标签</h2>
 
+<ul>
 {% for tag in site.tags %}
-- [{{ tag[0] }}]({{ site.baseurl }}/tags/#{{ tag[0] | slugize }})
+  <li><a href="{{ site.baseurl }}/tags/#{{ tag[0] | slugize }}">{{ tag[0] }}</a></li>
 {% endfor %}
+</ul>
