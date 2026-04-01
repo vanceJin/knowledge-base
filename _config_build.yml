@@ -11,4 +11,8 @@ exclude:
   - docker-compose.yml
   - README.md
   - assets/main.scss
+  - assets/css/just-the-docs-dark.scss
+  - assets/css/just-the-docs-light.scss
+  - assets/css/just-the-docs.scss
+  - _sass
 
