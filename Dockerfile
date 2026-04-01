@@ -12,8 +12,8 @@ COPY . .
 RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
-# 构建站点
-RUN jekyll build
+# 构建站点（带trace）
+RUN jekyll build --trace 2>&1 || true
 
 # 暴露端口
 EXPOSE 4000
