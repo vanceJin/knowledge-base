@@ -23,7 +23,7 @@ jobs:
       - name: Extract site files from Docker
         run: |
           docker create --name extract jekyll-site:latest
-          docker cp extract:/site ./_site
+          docker cp extract:/srv/jekyll/_site ./_site
           docker rm extract
 
       - name: Setup Pages
