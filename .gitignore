@@ -1,8 +1,25 @@
-_site/
-.jekyll-cache/
-.DS_Store
+# Jekyll dependencies
+Gemfile
+Gemfile.lock
+
+# Jekyll build output
+_site
+.sass-cache
+.jekyll-cache
+
+# IDE and editor files
+.idea
+.vscode
 *.swp
-*~
-.vscode/
-.idea/
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
 *.log
+
+# Temporary files
+tmp
+temp
