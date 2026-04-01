@@ -9,7 +9,7 @@ url: "http://localhost:4000"
 baseurl: ""
 
 # 主题
-theme: just-the-docs
+# theme: just-the-docs
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

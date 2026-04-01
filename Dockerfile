@@ -13,7 +13,7 @@ RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
 # 构建站点
-RUN jekyll build 2>&1 || true
+RUN jekyll build
 
 # 暴露端口
 EXPOSE 4000
