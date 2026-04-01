@@ -9,6 +9,7 @@ WORKDIR /srv/jekyll
 COPY . .
 
 # 安装依赖
+RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
 # 构建站点
