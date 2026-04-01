@@ -1,0 +1,16 @@
+<nav class="breadcrumb">
+  <a href="{{ site.baseurl }}/">首页</a>
+  <span class="separator">/</span>
+  {% if page.categories %}
+    {% for category in page.categories %}
+      {% unless forloop.last %}
+        <a href="{{ site.baseurl }}/categories/{{ category | slugize }}/">{{ category }}</a>
+        <span class="separator">/</span>
+      {% else %}
+        <span>{{ category }}</span>
+      {% endunless %}
+    {% endfor %}
+  {% else %}
+    <span>未分类</span>
+  {% endif %}
+</nav>

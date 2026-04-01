@@ -1,0 +1,27 @@
+<div class="sidebar-section">
+  <h3 class="sidebar-title">关于</h3>
+  <div class="about-content">
+    <p>这是一个基于 Jekyll 和 Docker 构建的个人知识库系统。</p>
+    <div class="social-links">
+      {% if site.social.github %}
+      <a href="https://github.com/{{ site.social.github }}" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      {% endif %}
+      {% if site.social.twitter %}
+      <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      {% endif %}
+      {% if site.social.linkedin %}
+      <a href="https://linkedin.com/in/{{ site.social.linkedin }}" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      {% endif %}
+      <a href="mailto:{{ site.social.email }}" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+  {% include theme-toggle.html %}
+</div>

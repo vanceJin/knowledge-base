@@ -1,0 +1,14 @@
+<div class="popular-posts">
+  <h3 class="sidebar-title">热门文章</h3>
+  <ul class="popular-posts-list">
+    {% assign sorted_posts = site.posts | sort: 'pageviews' | reverse %}
+    {% for post in sorted_posts limit:5 %}
+      <li class="popular-post-item">
+        <a href="{{ post.url | relative_url }}" class="popular-post-link">
+          <span class="post-title">{{ post.title }}</span>
+          <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

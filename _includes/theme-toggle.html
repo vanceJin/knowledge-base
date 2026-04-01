@@ -1,0 +1,54 @@
+<div class="theme-toggle-container">
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="切换深色模式">
+    <i class="fas fa-moon" id="moon-icon"></i>
+    <i class="fas fa-sun" id="sun-icon"></i>
+  </button>
+</div>
+
+<script>
+// 主题切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const moonIcon = document.getElementById('moon-icon');
+  const sunIcon = document.getElementById('sun-icon');
+  
+  // 从 localStorage 获取主题设置
+  const savedTheme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // 应用主题
+  applyTheme(savedTheme);
+  
+  // 主题切换事件
+  themeToggleBtn.addEventListener('click', function() {
+    const currentTheme = document.body.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+  
+  // 应用主题函数
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    
+    if (theme === 'dark') {
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'block';
+      document.documentElement.style.setProperty('--bg-color', '#1a1a2e');
+      document.documentElement.style.setProperty('--bg-light', '#16213e');
+      document.documentElement.style.setProperty('--text-color', '#e0e0e0');
+      document.documentElement.style.setProperty('--text-light', '#a0a0a0');
+      document.documentElement.style.setProperty('--border-color', '#333');
+    } else {
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+      document.documentElement.style.setProperty('--bg-color', '#fff');
+      document.documentElement.style.setProperty('--bg-light', '#f8f9fa');
+      document.documentElement.style.setProperty('--text-color', '#333');
+      document.documentElement.style.setProperty('--text-light', '#666');
+      document.documentElement.style.setProperty('--border-color', '#e0e0e0');
+    }
+  }
+});
+</script>

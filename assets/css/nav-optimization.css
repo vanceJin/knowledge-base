@@ -1,0 +1,306 @@
+---
+# 导航栏空间优化样式
+---
+
+/* ============================================
+   导航栏宽度优化 - 基础设置
+   ============================================ */
+
+/* 默认侧边栏宽度 - 增加宽度以确保文字完整显示 */
+.side-bar {
+  width: 15rem;
+  min-width: 15rem;
+  max-width: 15rem;
+}
+
+/* 主内容区域偏移调整 */
+.main {
+  margin-left: 15rem;
+  max-width: calc(100% - 15rem);
+}
+
+/* 搜索框宽度适配 */
+.main-header {
+  max-width: calc(100% - 15rem);
+}
+
+/* ============================================
+   导航项样式优化
+   ============================================ */
+
+/* 导航列表整体样式 */
+.nav-list {
+  padding: 0.5rem 0;
+}
+
+/* 导航项样式 - 减少垂直间距 */
+.nav-list-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* 导航链接样式 - 紧凑但可点击 */
+.nav-list-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* 当前页面高亮 - 使用设计系统主色调 */
+.nav-list-link.active {
+  background-color: rgba(52, 152, 219, 0.15);
+  border-left-color: #3498db;
+  font-weight: 600;
+}
+
+/* 悬停效果 */
+.nav-list-link:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  text-decoration: none;
+}
+
+/* ============================================
+   网站标题区域优化
+   ============================================ */
+
+.site-header {
+  height: auto;
+  min-height: 60px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   搜索框优化
+   ============================================ */
+
+.search-input-wrap {
+  max-width: 100%;
+}
+
+.search-input {
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   响应式布局 - 紧凑模式 (75rem = 1200px)
+   ============================================ */
+
+@media (max-width: 74.9375rem) {
+  /* 进一步压缩侧边栏 */
+  .side-bar {
+    width: 13.75rem;
+    min-width: 13.75rem;
+    max-width: 13.75rem;
+  }
+  
+  .main {
+    margin-left: 13.75rem;
+    max-width: calc(100% - 13.75rem);
+  }
+  
+  .main-header {
+    max-width: calc(100% - 13.75rem);
+  }
+  
+  /* 更紧凑的导航项 */
+  .nav-list-link {
+    padding: 0.4rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  
+  .site-title {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ============================================
+   响应式布局 - 平板模式 (56.25rem = 900px)
+   ============================================ */
+
+@media (max-width: 56.1875rem) {
+  .side-bar {
+    width: 11.25rem;
+    min-width: 11.25rem;
+    max-width: 11.25rem;
+  }
+  
+  .main {
+    margin-left: 11.25rem;
+    max-width: calc(100% - 11.25rem);
+  }
+  
+  .main-header {
+    max-width: calc(100% - 11.25rem);
+  }
+  
+  .nav-list-link {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .site-title {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================
+   响应式布局 - 移动端可折叠模式 (48rem = 768px)
+   ============================================ */
+
+@media (max-width: 47.9375rem) {
+  /* 侧边栏变为可折叠的顶部导航 */
+  .side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 17.5rem;
+    max-width: 17.5rem;
+    min-width: 17.5rem;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    background: var(--bg-color, #fff);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 侧边栏展开状态 */
+  .side-bar.show {
+    transform: translateX(0);
+  }
+  
+  /* 主内容区域全宽 */
+  .main {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .main-header {
+    max-width: 100%;
+  }
+  
+  /* 移动端导航样式 */
+  .nav-list {
+    padding: 1rem 0;
+  }
+  
+  .nav-list-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-left: none;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+  
+  .nav-list-link.active {
+    background-color: rgba(52, 152, 219, 0.15);
+    border-left: none;
+  }
+  
+  /* 菜单按钮始终可见 */
+  #menu-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-right: 0.5rem;
+  }
+  
+  /* 网站标题区域 */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 99;
+    background: var(--bg-color, #fff);
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    padding: 0 1rem;
+  }
+  
+  /* 主内容区域顶部留白 */
+  .main {
+    margin-top: 60px;
+  }
+  
+  /* 遮罩层 */
+  .side-bar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+  
+  .side-bar-overlay.show {
+    display: block;
+  }
+}
+
+/* ============================================
+   标签/分类页面内容优化
+   ============================================ */
+
+/* 标签标题样式优化 */
+#main-content h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 标签列表项样式 */
+#main-content ul li {
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 链接文字换行处理 */
+#main-content a {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 主内容区域确保有足够空间 */
+.main-content {
+  overflow-x: hidden;
+  padding: 1.5rem;
+}
+
+/* ============================================
+   打印样式优化
+   ============================================ */
+
+@media print {
+  .side-bar {
+    display: none !important;
+  }
+  
+  .main {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+}

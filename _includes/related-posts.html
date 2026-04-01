@@ -1,0 +1,28 @@
+<div class="related-posts">
+  <h3>相关文章</h3>
+  <ul>
+    {% assign related_posts = "" | split: "" %}
+    {% for tag in page.tags %}
+      {% for post in site.tags[tag] %}
+        {% if post.url != page.url %}
+          {% assign related_posts = related_posts | push: post %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% assign related_posts = related_posts | uniq %}
+    {% assign related_count = related_posts | size %}
+    
+    {% if related_count > 0 %}
+      {% assign related_posts = related_posts | limit: 5 %}
+      {% for post in related_posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <div class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+      </li>
+      {% endfor %}
+    {% else %}
+      <li>暂无相关文章</li>
+    {% endif %}
+  </ul>
+</div>

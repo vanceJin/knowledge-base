@@ -1,0 +1,517 @@
+---
+# 设计系统样式 - 确保与设计规范一致
+---
+
+/* ============================================
+   CSS 变量定义 - 与设计规范一致
+   ============================================ */
+
+:root {
+  /* 主色调 - 来自设计规范 */
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --primary-light: #5dade2;
+  
+  /* 文本颜色 */
+  --text-color: #333333;
+  --text-light: #666666;
+  --text-dark: #222222;
+  
+  /* 背景颜色 */
+  --bg-color: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-dark: #2c3e50;
+  
+  /* 边框颜色 */
+  --border-color: #e0e0e0;
+  --border-radius: 8px;
+  
+  /* 间距 - 设计规范 */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;      /* 8px */
+  --spacing-md: 1rem;        /* 16px */
+  --spacing-lg: 1.5rem;      /* 24px */
+  --spacing-xl: 2rem;        /* 32px */
+  
+  /* 字体 */
+  --font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: "Courier New", monospace;
+  
+  /* 阴影 */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+  
+  /* 过渡 */
+  --transition-speed: 0.3s;
+  
+  /* Just the Docs 主题覆盖 */
+  --sidebar-width: 15rem;  /* 240px */
+}
+
+/* ============================================
+   深色模式 - 设计规范
+   ============================================ */
+
+[data-theme="dark"] {
+  --bg-color: #1a1a2e;
+  --bg-light: #16213e;
+  --text-color: #e0e0e0;
+  --text-light: #a0a0a0;
+  --text-dark: #f0f0f0;
+  --border-color: #333333;
+  --primary-color: #5dade2;
+  --primary-dark: #3498db;
+  --primary-light: #85c1e9;
+}
+
+/* 系统深色模式偏好 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-color: #1a1a2e;
+    --bg-light: #16213e;
+    --text-color: #e0e0e0;
+    --text-light: #a0a0a0;
+    --text-dark: #f0f0f0;
+    --border-color: #333333;
+    --primary-color: #5dade2;
+    --primary-dark: #3498db;
+    --primary-light: #85c1e9;
+  }
+}
+
+/* ============================================
+   排版系统 - Typography
+   ============================================ */
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题层级 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-dark);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+/* 段落 */
+p {
+  margin-bottom: var(--spacing-md);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 链接 */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* 代码 */
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+}
+
+code {
+  background-color: var(--bg-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: var(--bg-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ============================================
+   布局系统 - Layout
+   ============================================ */
+
+/* 主内容区域 */
+.main-content {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
+
+/* 内容包装器 */
+.main-content-wrap {
+  padding: var(--spacing-lg);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   组件样式 - Components
+   ============================================ */
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 卡片 */
+.card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-md);
+  transition: box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* 标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 15px;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: all var(--transition-speed);
+}
+
+.tag:hover {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+}
+
+/* 分类 */
+.category {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background-color: var(--bg-light);
+  border-radius: 20px;
+  font-size: 0.85em;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-speed);
+}
+
+.category:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   侧边栏覆盖 - Sidebar Overrides
+   ============================================ */
+
+/* 侧边栏宽度 - 与设计规范一致 */
+.side-bar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  background-color: var(--bg-light);
+  border-right: 1px solid var(--border-color);
+}
+
+/* 主内容区域偏移 */
+.main {
+  margin-left: var(--sidebar-width);
+  max-width: calc(100% - var(--sidebar-width));
+  overflow-x: hidden;
+}
+
+/* 搜索框宽度适配 */
+.main-header {
+  max-width: calc(100% - var(--sidebar-width));
+}
+
+/* 网站标题 */
+.site-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* 导航链接 */
+.nav-list-link {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-list-link:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-list-link.active {
+  background-color: rgba(52, 152, 219, 0.15);
+  border-left-color: var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ============================================
+   响应式设计 - Responsive Design
+   ============================================ */
+
+/* 超大屏 (≥133rem = 2128px) */
+@media (min-width: 133rem) {
+  .main-content {
+    max-width: 62.5rem;
+  }
+  
+  .main-content-wrap {
+    padding: var(--spacing-xl);
+  }
+  
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+/* 大屏 (≥75rem = 1200px) */
+@media (min-width: 75rem) {
+  .main-content {
+    max-width: 56.25rem;
+  }
+}
+
+/* 中屏 (48rem - 74.9375rem = 768px - 1199px) */
+@media (max-width: 74.9375rem) {
+  :root {
+    --sidebar-width: 13.75rem;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.375rem; }
+  
+  .main-content {
+    padding: var(--spacing-md);
+  }
+  
+  .main-content-wrap {
+    padding: var(--spacing-md);
+  }
+}
+
+/* 平板 (37.5rem - 56.1875rem = 600px - 899px) */
+@media (max-width: 56.1875rem) {
+  :root {
+    --sidebar-width: 11.25rem;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+  
+  .main-content {
+    padding: var(--spacing-md);
+  }
+  
+  .main-content-wrap {
+    padding: var(--spacing-md);
+  }
+}
+
+/* 移动端 (<=47.9375rem = 767px) */
+@media (max-width: 47.9375rem) {
+  :root {
+    --sidebar-width: 100%;
+  }
+  
+  body {
+    font-size: 0.9375rem;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.125rem; }
+  
+  .main {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .main-header {
+    max-width: 100%;
+  }
+  
+  .main-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .main-content-wrap {
+    padding: var(--spacing-sm);
+  }
+  
+  /* 移动端侧边栏 */
+  .side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 17.5rem;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+  }
+  
+  .side-bar.show {
+    transform: translateX(0);
+  }
+}
+
+/* 小屏幕移动端 (<=30rem = 480px) */
+@media (max-width: 29.9375rem) {
+  body {
+    font-size: 0.875rem;
+  }
+  
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.125rem; }
+  
+  .main-content {
+    padding: var(--spacing-xs);
+  }
+  
+  .main-content-wrap {
+    padding: var(--spacing-xs);
+  }
+}
+
+/* ============================================
+   辅助功能 - Accessibility
+   ============================================ */
+
+/* 焦点样式 */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color: #000000;
+    --text-light: #333333;
+    --border-color: #000000;
+  }
+}
+
+/* ============================================
+   打印样式 - Print Styles
+   ============================================ */
+
+@media print {
+  .side-bar,
+  .main-header,
+  .site-footer,
+  #menu-button {
+    display: none !important;
+  }
+  
+  .main {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+  
+  pre, code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd;
+  }
+}

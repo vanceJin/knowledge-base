@@ -1,0 +1,16 @@
+<div class="sidebar-section">
+  <h3 class="sidebar-title">分类</h3>
+  <div class="categories-list">
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+      <div class="category-item">
+        <h4 class="category-title">
+          <a href="{{ site.baseurl }}/categories/{{ category | first | slugize }}/">
+            {{ category | first }}
+          </a>
+        </h4>
+        <span class="category-count">{{ category | last | size }} 篇</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>

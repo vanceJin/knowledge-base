@@ -1,0 +1,24 @@
+<div class="reading-progress">
+  <div class="reading-progress-bar">
+    <div class="reading-progress-fill"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var progressBar = document.querySelector('.reading-progress-fill');
+  
+  function updateProgress() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.body.scrollHeight - window.innerHeight;
+    var scrollPercent = (scrollTop / docHeight) * 100;
+    
+    if (progressBar) {
+      progressBar.style.width = scrollPercent + '%';
+    }
+  }
+  
+  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('load', updateProgress);
+});
+</script>

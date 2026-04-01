@@ -1,0 +1,76 @@
+title: 个人知识库
+description: 我的知识管理平台
+author: Your Name
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# URL 设置
+url: "http://localhost:4000"
+baseurl: ""
+
+# 主题
+theme: just-the-docs
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+
+# 分页配置
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/page/:num/'
+  title: ':title - 第 :num 页'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+# Just the Docs 主题配置
+# 详见 https://just-the-docs.github.io/just-the-docs/docs/configuration/
+permalink: pretty
+
+# 导航配置
+nav:
+  - title: "首页"
+    url: /
+  - title: "分类"
+    url: /categories/
+  - title: "标签"
+    url: /tags/
+  - title: "关于"
+    url: /about/
+
+# 搜索设置
+search_enabled: true
+
+# 侧边栏设置
+sidebar:
+  nav: nav
+
+# Markdown 设置
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Dockerfile
+  - docker-compose.yml
+  - README.md
+  - assets/main.scss
+  - _sass
+
+# 性能优化
+incremental: false
+lsi: false
+future: false
+drafts: false
