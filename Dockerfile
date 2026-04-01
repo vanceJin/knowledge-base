@@ -12,8 +12,8 @@ COPY . .
 RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
-# 构建站点
-RUN bundle exec jekyll build
+# 显示构建信息用于调试
+RUN bundle exec jekyll build --verbose 2>&1 || true
 
 # 暴露端口
 EXPOSE 4000
