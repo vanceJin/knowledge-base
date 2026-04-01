@@ -25,13 +25,17 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
           cache-version: 0
+          working-directory: ./
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
+        env:
+          BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
         run: |
+          bundle install
           bundle exec jekyll build
 
       - name: Upload artifact
