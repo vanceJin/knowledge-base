@@ -5,11 +5,14 @@ FROM jekyll/jekyll:latest
 # 设置工作目录
 WORKDIR /srv/jekyll
 
-# 复制 Gemfile
-COPY Gemfile .
+# 复制所有文件
+COPY . .
 
 # 安装依赖
 RUN bundle install
+
+# 构建站点
+RUN bundle exec jekyll build
 
 # 暴露端口
 EXPOSE 4000
