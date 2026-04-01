@@ -5,15 +5,15 @@ FROM jekyll/jekyll:latest
 # 设置工作目录
 WORKDIR /srv/jekyll
 
-# 复制所有文件
+# 复制 all files
 COPY . .
 
 # 安装依赖
 RUN bundle config set --local path 'vendor/bundle'
 RUN bundle install
 
-# 显示构建信息用于调试
-RUN bundle exec jekyll build --verbose 2>&1 || true
+# 构建站点
+RUN jekyll build
 
 # 暴露端口
 EXPOSE 4000
