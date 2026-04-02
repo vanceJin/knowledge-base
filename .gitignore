@@ -7,6 +7,9 @@ _site
 .sass-cache
 .jekyll-cache
 
+# Bundler vendor directory
+vendor/bundle
+
 # IDE and editor files
 .idea
 .vscode

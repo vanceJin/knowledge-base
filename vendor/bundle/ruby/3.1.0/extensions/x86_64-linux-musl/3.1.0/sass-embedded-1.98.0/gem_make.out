@@ -1,5 +1,0 @@
-current directory: /srv/jekyll/vendor/bundle/ruby/3.1.0/gems/sass-embedded-1.98.0/ext/sass
-/usr/local/bin/ruby -I/usr/local/lib/ruby/site_ruby/3.1.0 -rrubygems /srv/jekyll/vendor/bundle/ruby/3.1.0/gems/rake-13.3.1/exe/rake RUBYARCHDIR\=/srv/jekyll/vendor/bundle/ruby/3.1.0/extensions/x86_64-linux-musl/3.1.0/sass-embedded-1.98.0 RUBYLIBDIR\=/srv/jekyll/vendor/bundle/ruby/3.1.0/extensions/x86_64-linux-musl/3.1.0/sass-embedded-1.98.0
-gem install --force --install-dir /srv/jekyll/vendor/bundle/ruby/3.1.0/extensions/x86_64-linux-musl/3.1.0/sass-embedded-1.98.0/sass/ruby --no-document --ignore-dependencies --platform x86_64-linux-musl --version 1.98.0 sass-embedded
-mv /srv/jekyll/vendor/bundle/ruby/3.1.0/extensions/x86_64-linux-musl/3.1.0/sass-embedded-1.98.0/sass/ruby/gems/sass-embedded-1.98.0-x86_64-linux-musl/lib/sass/dart-sass dart-sass
-rm -rf /srv/jekyll/vendor/bundle/ruby/3.1.0/extensions/x86_64-linux-musl/3.1.0/sass-embedded-1.98.0/sass/ruby
