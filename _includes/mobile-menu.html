@@ -1,0 +1,26 @@
+<button id="menu-toggle" class="menu-toggle" aria-label="切换菜单">
+  <span class="menu-icon"></span>
+  <span class="menu-icon"></span>
+  <span class="menu-icon"></span>
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const topNav = document.querySelector('.top-nav');
+    
+    if (menuToggle && topNav) {
+      menuToggle.addEventListener('click', function() {
+        topNav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.menu-toggle') && !e.target.closest('.top-nav')) {
+          topNav.classList.remove('active');
+          menuToggle.classList.remove('active');
+        }
+      });
+    }
+  });
+</script>

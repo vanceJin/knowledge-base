@@ -1,0 +1,28 @@
+navigation:
+  - title: "首页"
+    url: /
+    icon: "home"
+  
+  - title: "技术文档"
+    url: /categories/
+    icon: "book"
+    children:
+      - title: ".NET"
+        url: /categories/#.net
+      - title: "数据库"
+        url: /categories/#数据库
+      - title: "开发工具"
+        url: /categories/#开发工具
+  
+  - title: "教程指南"
+    url: /tags/
+    icon: "graduation-cap"
+    children:
+      - title: "入门教程"
+        url: /tags/#入门
+      - title: "实战项目"
+        url: /tags/#实战
+  
+  - title: "关于"
+    url: /about/
+    icon: "info-circle"

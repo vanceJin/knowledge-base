@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }}{% if page.title != site.title %} - {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | default: '我的知识管理平台' }}">
+  
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/design-system.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/nav-optimization.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/responsive.css' | relative_url }}">
+  
+  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+  
+  {% include head_custom.html %}
+</head>
+<body>
+  <div class="site-container">
+    <header class="site-header">
+      <div class="header-content">
+        <a href="{{ site.baseurl }}/" class="site-title">{{ site.title }}</a>
+        {% include mobile-menu.html %}
+        <nav class="top-nav">
+          <a href="{{ site.baseurl }}/" class="nav-link {% if page.url == '/' %}active{% endif %}">首页</a>
+          <a href="{{ site.baseurl }}/categories/" class="nav-link {% if page.url contains 'categories' %}active{% endif %}">分类</a>
+          <a href="{{ site.baseurl }}/tags/" class="nav-link {% if page.url contains 'tags' %}active{% endif %}">标签</a>
+          <a href="{{ site.baseurl }}/about/" class="nav-link {% if page.url contains 'about' %}active{% endif %}">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <aside class="sidebar">
+        {% include search.html %}
+        {% include sidebar-about.html %}
+        {% include sidebar-categories.html %}
+        {% include sidebar-tags.html %}
+      </aside>
+
+      <main class="main-content">
+        {% unless page.url == '/' %}
+          {% include breadcrumb.html %}
+        {% endunless %}
+        
+        <article class="content">
+          {% if page.title %}
+            <h1 class="page-title">{{ page.title }}</h1>
+          {% endif %}
+          {{ content }}
+        </article>
+        
+        {% if page.layout == 'post' %}
+          {% include related-posts.html %}
+        {% endif %}
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  {% include theme-toggle.html %}
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+</body>
+</html>
