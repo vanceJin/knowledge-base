@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML生成测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .method {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
+        .test-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 3px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML生成测试</h1>
+        
+        <div class="method">
+            <h2>1. 静态HTML创建</h2>
+            <p>静态HTML是直接编写的HTML文件，不需要任何动态生成过程。</p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;静态HTML示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;这是一个静态HTML页面。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+        </div>
+        
+        <div class="method">
+            <h2>2. 服务器端渲染 (SSR)</h2>
+            <p>服务器端渲染是在服务器上生成HTML，然后将完整的HTML发送到客户端。</p>
+            <div class="code">
+// 示例：使用Node.js和Express进行服务器端渲染
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    const html = `
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;服务器端渲染示例&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Hello, ${req.query.name || 'World'}!&lt;/h1&gt;
+            &lt;p&gt;当前时间: ${new Date().toLocaleString()}&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    `;
+    res.send(html);
+});
+
+app.listen(3000, () => {
+    console.log('服务器运行在 http://localhost:3000');
+});
+            </div>
+        </div>
+        
+        <div class="method">
+            <h2>3. 客户端渲染 (CSR)</h2>
+            <p>客户端渲染是在浏览器中使用JavaScript生成HTML。</p>
+            <div class="code">
+// 示例：使用JavaScript进行客户端渲染
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('content');
+    const html = `
+        &lt;h1&gt;Hello, World!&lt;/h1&gt;
+        &lt;p&gt;当前时间: ${new Date().toLocaleString()}&lt;/p&gt;
+    `;
+    container.innerHTML = html;
+});
+            </div>
+        </div>
+        
+        <div class="method">
+            <h2>4. 基于模板的生成</h2>
+            <p>基于模板的生成使用模板引擎（如Handlebars、EJS、Pug等）来生成HTML。</p>
+            <div class="code">
+// 示例：使用Handlebars模板引擎
+const Handlebars = require('handlebars');
+
+const template = Handlebars.compile(`
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;{{heading}}&lt;/h1&gt;
+        &lt;ul&gt;
+            {{#each items}}
+                &lt;li&gt;{{this}}&lt;/li&gt;
+            {{/each}}
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+`);
+
+const html = template({
+    title: '模板示例',
+    heading: 'Hello, World!',
+    items: ['Item 1', 'Item 2', 'Item 3']
+});
+
+console.log(html);
+            </div>
+        </div>
+        
+        <h2>HTML验证测试</h2>
+        <div class="test-result success" id="validation-result">
+            <h3>验证结果</h3>
+            <p>正在验证HTML...</p>
+        </div>
+    </div>
+    
+    <script>
+        // HTML验证函数
+        function validateHTML() {
+            const validationResult = document.getElementById('validation-result');
+            
+            // 1. 检查DOCTYPE
+            const hasDoctype = document.doctype !== null;
+            
+            // 2. 检查HTML结构
+            const htmlElement = document.querySelector('html');
+            const headElement = document.querySelector('head');
+            const bodyElement = document.querySelector('body');
+            
+            // 3. 检查关键元素
+            const titleElement = document.querySelector('title');
+            const headingElement = document.querySelector('h1');
+            
+            // 4. 验证结果
+            let isValid = true;
+            let errorMessages = [];
+            
+            if (!hasDoctype) {
+                isValid = false;
+                errorMessages.push('缺少DOCTYPE声明');
+            }
+            
+            if (!htmlElement) {
+                isValid = false;
+                errorMessages.push('缺少html元素');
+            }
+            
+            if (!headElement) {
+                isValid = false;
+                errorMessages.push('缺少head元素');
+            }
+            
+            if (!bodyElement) {
+                isValid = false;
+                errorMessages.push('缺少body元素');
+            }
+            
+            if (!titleElement) {
+                isValid = false;
+                errorMessages.push('缺少title元素');
+            }
+            
+            if (!headingElement) {
+                isValid = false;
+                errorMessages.push('缺少h1元素');
+            }
+            
+            // 更新验证结果
+            if (isValid) {
+                validationResult.className = 'test-result success';
+                validationResult.innerHTML = `
+                    <h3>验证结果</h3>
+                    <p>HTML验证成功！</p>
+                    <ul>
+                        <li>✓ 包含DOCTYPE声明</li>
+                        <li>✓ 包含完整的HTML结构</li>
+                        <li>✓ 包含必要的元素</li>
+                        <li>✓ 语法正确</li>
+                    </ul>
+                `;
+            } else {
+                validationResult.className = 'test-result error';
+                validationResult.innerHTML = `
+                    <h3>验证结果</h3>
+                    <p>HTML验证失败！</p>
+                    <ul>
+                        ${errorMessages.map(msg => `<li>✗ ${msg}</li>`).join('')}
+                    </ul>
+                `;
+            }
+        }
+        
+        // 页面加载完成后进行验证
+        document.addEventListener('DOMContentLoaded', validateHTML);
+    </script>
+</body>
+</html>

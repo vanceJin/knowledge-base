@@ -15,6 +15,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate-v2
+  - jekyll-archives
 
 # 分页配置
 pagination:
@@ -74,3 +75,11 @@ incremental: false
 lsi: false
 future: false
 drafts: false
+
+# jekyll-archives 配置
+jekyll-archives:
+  enabled:
+    - categories
+  layout: category
+  permalinks:
+    category: '/categories/:name/'

@@ -5,7 +5,7 @@
     {% for category in categories %}
       <div class="category-item">
         <h4 class="category-title">
-          <a href="{{ site.baseurl }}/categories/{{ category | first | slugize }}/">
+          <a href="{{ site.baseurl }}/categories/{{ category | first | downcase | replace: '.', '' | slugize }}/">
             {{ category | first }}
           </a>
         </h4>

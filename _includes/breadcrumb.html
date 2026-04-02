@@ -1,10 +1,14 @@
 <nav class="breadcrumb">
   <a href="{{ site.baseurl }}/">首页</a>
   <span class="separator">/</span>
-  {% if page.categories %}
+  {% if page.layout == 'category' %}
+    <a href="{{ site.baseurl }}/categories/">分类</a>
+    <span class="separator">/</span>
+    <span>{{ page.title }}</span>
+  {% elsif page.categories %}
     {% for category in page.categories %}
       {% unless forloop.last %}
-        <a href="{{ site.baseurl }}/categories/{{ category | slugize }}/">{{ category }}</a>
+        <a href="{{ site.baseurl }}/categories/{{ category | downcase | replace: '.', '' | slugize }}/">{{ category }}</a>
         <span class="separator">/</span>
       {% else %}
         <span>{{ category }}</span>
