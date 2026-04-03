@@ -14,12 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
+    
+    - name: Build the site
       run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-
+        gem install bundler
+        bundle config set --local path 'vendor/bundle'
+        bundle install
+        bundle exec jekyll build --config _config.yml
+        
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
