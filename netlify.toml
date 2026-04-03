@@ -8,6 +8,8 @@
 [build.environment]
   RUBY_VERSION = "3.1.4"
   JEKYLL_ENV = "production"
+  URL = "https://your-site.netlify.app"
+  BASEURL = ""
 
 # 优化的构建设置
 [build.processing]
@@ -27,7 +29,7 @@
 [build.processing.images]
   optimize = true
 
-# 重写规则
+# 重写规则 - 所有未找到的页面重定向到 404
 [[redirects]]
   from = "/*"
   to = "/404.html"

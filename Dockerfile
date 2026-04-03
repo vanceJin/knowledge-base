@@ -25,10 +25,7 @@ RUN bundle config set --local path 'vendor/bundle' && \
 COPY . .
 
 # 构建站点(生产环境)
-RUN JEKYLL_ENV=production bundle exec jekyll build \
-    --config _config.yml \
-    --drafts=false \
-    --future=false
+RUN JEKYLL_ENV=production bundle exec jekyll build
 
 # ============================================
 # 阶段2: 运行阶段

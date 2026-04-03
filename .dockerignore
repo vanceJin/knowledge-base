@@ -63,14 +63,12 @@ build.sh
 # ============================================
 Dockerfile*
 docker-compose*.yml
-nginx.conf
 .dockerignore
 
 # ============================================
 # CI/CD 配置
 # ============================================
 .github
-netlify.toml
 vercel.json
 .travis.yml
 .circleci
