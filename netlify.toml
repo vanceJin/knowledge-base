@@ -8,7 +8,7 @@
 [build.environment]
   RUBY_VERSION = "3.1.4"
   JEKYLL_ENV = "production"
-  URL = "https://your-site.netlify.app"
+  URL = "https://vancejin.github.io/knowledge-base"
   BASEURL = ""
 
 # 优化的构建设置
