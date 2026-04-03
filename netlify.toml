@@ -8,8 +8,8 @@
 [build.environment]
   RUBY_VERSION = "3.1.4"
   JEKYLL_ENV = "production"
-  URL = "https://vancejin.github.io/knowledge-base"
-  BASEURL = ""
+  URL = "https://vancejin.github.io"
+  BASEURL = "/knowledge-base"
 
 # 优化的构建设置
 [build.processing]
