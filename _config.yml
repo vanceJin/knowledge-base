@@ -6,8 +6,8 @@ timezone: Asia/Shanghai
 
 # URL 设置
 # 本地开发使用 localhost，生产环境在 netlify.toml 中覆盖
-url: "http://localhost:4000"
-baseurl: ""
+url: "https://vancejin.github.io"
+baseurl: "/knowledge-base"
 
 # 主题
 # theme: just-the-docs
