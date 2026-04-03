@@ -15,6 +15,7 @@ vendor/bundle
 .vscode
 *.swp
 *.swo
+*~
 
 # OS files
 .DS_Store
@@ -22,7 +23,35 @@ Thumbs.db
 
 # Log files
 *.log
+logs
 
 # Temporary files
 tmp
 temp
+*.tmp
+
+# Docker files (开发时不需要提交)
+Dockerfile.dev
+docker-compose.dev.yml
+nginx.conf
+.dockerignore
+
+# CI/CD 配置
+.github
+vercel.json
+
+# 构建配置
+_config_build.yml
+
+# 测试站点
+test-site
+
+# 其他
+node_modules
+.cache
+dist
+build
+
+# 文档文件 (生产环境不需要)
+docs/
+CHANGELOG.md

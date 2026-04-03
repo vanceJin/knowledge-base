@@ -1,0 +1,41 @@
+{% capture toc_marker %}{{ 'TOC' }}{% endcapture %}
+{% assign has_toc = content | strip_html | contains: toc_marker %}
+
+{% if page.toc or has_toc %}
+<div class="toc">
+  <h3 class="toc-title">文章目录</h3>
+  <ul class="toc-list">
+    {% capture toc_html %}{{ content | markdownify }}{% endcapture %}
+    {% assign headings = toc_html | split: '</h' %}
+    {% assign heading_level = 2 %}
+    {% assign prev_level = 1 %}
+    
+    {% for heading in headings %}
+      {% if heading contains '<h' %}
+        {% assign heading_text = heading | split: '>' | last | split: '<' | first | strip_html | strip %}
+        {% assign heading_id = heading | split: 'id="' | last | split: '"' | first %}
+        {% assign current_level = heading | split: '<h' | last | split: '>' | first | slice: 0, 1 | times: 1 %}
+        
+        {% if current_level > prev_level %}
+          {% for i in (prev_level..current_level) %}
+            <ul>
+          {% endfor %}
+        {% elsif current_level < prev_level %}
+          {% for i in (current_level..prev_level) %}
+            </ul></li>
+          {% endfor %}
+        {% else %}
+          </li>
+        {% endif %}
+        
+        <li><a href="#{{ heading_id }}">{{ heading_text }}</a>
+        {% assign prev_level = current_level %}
+      {% endif %}
+    {% endfor %}
+    
+    {% for i in (1..prev_level) %}
+      {% if i > 1 %}</ul></li>{% else %}</ul>{% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

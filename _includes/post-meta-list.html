@@ -1,0 +1,13 @@
+<div class="post-meta-list">
+  <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+  {% assign words = post.content | strip_html | split: ' ' | size %}
+  {% assign reading_time = words | divided_by: 200 | at_least: 1 %}
+  <span class="post-reading-time">约 {{ reading_time }} 分钟阅读</span>
+  {% if post.categories %}
+    <span class="post-categories-list">
+      {% for category in post.categories %}
+        <span class="category-tag">{{ category }}</span>
+      {% endfor %}
+    </span>
+  {% endif %}
+</div>

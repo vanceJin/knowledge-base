@@ -4,6 +4,7 @@ title: "MySQL 与 PostgreSQL 深度对比：选型、特性与适用场景"
 date: 2026-03-30 10:00:00 +0800
 categories: [数据库技术, MySQL, PostgreSQL]
 tags: [数据库对比, MySQL, PostgreSQL, 技术选型, 关系型数据库]
+toc: true
 ---
 
 ## 前言

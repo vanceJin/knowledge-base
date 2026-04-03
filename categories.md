@@ -3,8 +3,6 @@ title: 分类
 layout: default
 ---
 
-# 分类
-
 {% for category in site.categories %}
 ## {{ category[0] }}
 

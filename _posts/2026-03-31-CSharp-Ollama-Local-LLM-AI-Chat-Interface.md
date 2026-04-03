@@ -4,6 +4,7 @@ title: "C#调用Ollama本地大模型：零基础实现AI对话接口"
 date: 2026-03-31 14:00:00 +0800
 categories: [.NET, AI, 大模型]
 tags: [C#, Ollama, 本地大模型, AI对话, .NET 9]
+toc: true
 ---
 
 ## 前言
@@ -594,7 +595,7 @@ private async void btnSend_Click(object sender, EventArgs e)
 
 4. 权限控制：在WebAPI中添加接口权限，限制Ollama模型调用次数、频率。
 
-## 十三、总结（补充完善）
+## 十三、总结
 
 本文在基础调用的基础上，补充了流式返回、模型切换、WinForm集成等进阶内容，覆盖控制台、WebAPI、桌面应用三种常见场景，适配.NET 9，全程实操可复现。C#调用Ollama本地大模型的核心是通过HTTP请求与Ollama服务交互，关键在于理解请求参数、响应格式，以及流式返回的实现逻辑。
 

@@ -2,4 +2,14 @@
 layout: default
 ---
 
-{{ content }}
+<article class="post">
+  {% include post-meta.html %}
+  
+  {% if page.toc %}
+  {% include toc.html %}
+  {% endif %}
+  
+  {{ content }}
+  
+  {% include share-buttons.html %}
+</article>

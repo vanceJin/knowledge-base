@@ -4,6 +4,7 @@ title: "EF Core性能优化大全：索引、查询、批量操作避坑指南"
 date: 2026-03-31 16:00:00 +0800
 categories: [.NET, 数据库, 性能优化]
 tags: [EF Core, 性能优化, 索引, 查询优化, 批量操作, .NET 9]
+toc: true
 ---
 
 ## 前言

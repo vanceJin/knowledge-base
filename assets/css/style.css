@@ -76,6 +76,27 @@ a:hover {
   font-size: 0.9em;
   color: var(--text-light);
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.post-date,
+.post-reading-time,
+.post-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-excerpt {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  background: var(--bg-light);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-color);
 }
 
 .post-categories a {
@@ -86,6 +107,40 @@ a:hover {
   margin-right: 5px;
   font-size: 0.8em;
   transition: background-color var(--transition-speed);
+}
+
+.post-meta-list {
+  font-size: 0.9em;
+  color: var(--text-light);
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.post-date,
+.post-reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.category-tag {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  transition: all var(--transition-speed);
+}
+
+.category-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
 }
 
 .read-more {
@@ -129,13 +184,14 @@ a:hover {
     position: fixed;
     top: 60px;
     left: 20px;
-    width: 250px;
+    width: 220px;
     height: calc(100vh - 80px);
     overflow-y: auto;
+    padding-right: 10px;
   }
   
   body {
-    padding-left: 280px;
+    padding-left: 250px;
   }
 }
 
@@ -480,11 +536,13 @@ a:hover {
 
 /* 文章内容优化 */
 .post-content {
-  line-height: 1.8;
+  line-height: 1.9;
+  font-size: 1.05rem;
 }
 
 .post-content p {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.5em;
+  text-align: justify;
 }
 
 .post-content h2 {
@@ -686,5 +744,31 @@ a:hover {
     text-align: center;
     order: -1;
     margin-bottom: 0.5rem;
+  }
+}
+
+/* 列表页面响应式优化 */
+@media (max-width: 767px) {
+  .post-meta-list {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+  }
+  
+  .category-tag {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .post-meta-list {
+    flex-wrap: wrap;
+  }
+  
+  .category-tag {
+    white-space: nowrap;
   }
 }

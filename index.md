@@ -13,9 +13,7 @@ pagination:
 
 {% for post in paginator.posts %}
 <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-<p>{{ post.date | date: "%Y-%m-%d" }} · {% for cat in post.categories %}<code>{{ cat }}</code>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
-
-{{ post.excerpt }}
+{% include post-meta-list.html %}
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
@@ -35,19 +33,3 @@ pagination:
   {% endif %}
 </div>
 {% endif %}
-
-<h2>分类</h2>
-
-<ul>
-{% for category in site.categories %}
-  <li><a href="{{ site.baseurl }}/categories/#{{ category[0] | slugize }}">{{ category[0] }}</a></li>
-{% endfor %}
-</ul>
-
-<h2>标签</h2>
-
-<ul>
-{% for tag in site.tags %}
-  <li><a href="{{ site.baseurl }}/tags/#{{ tag[0] | slugize }}">{{ tag[0] }}</a></li>
-{% endfor %}
-</ul>

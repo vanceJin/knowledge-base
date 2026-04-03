@@ -5,6 +5,7 @@ date: 2026-03-30 14:00:00 +0800
 categories: [.NET, WebAPI]
 tags: [ASP.NET Core, WebAPI, CRUD, Swagger, 依赖注入]
 excerpt: ".NET开发中，WebAPI是最常用的场景之一（接口开发、前后端分离、服务对接都离不开），本文从零开始，搭建一个完整的ASP.NET Core WebAPI项目，实现数据的增删改查（CRUD），集成Swagger调试、依赖注入、模型校验等核心功能，新手也能轻松上手。"
+toc: true
 ---
 
 .NET开发中，WebAPI是最常用的场景之一（接口开发、前后端分离、服务对接都离不开），本文从零开始，搭建一个完整的ASP.NET Core WebAPI项目，实现数据的增删改查（CRUD），集成Swagger调试、依赖注入、模型校验等核心功能，新手也能轻松上手，适合刚接触WebAPI的.NET开发者，也是面试中高频考察的基础技能。

@@ -5,8 +5,8 @@ date: 2026-03-30 16:00:00 +0800
 categories: [.NET, Docker]
 tags: [Docker, .NET, 镜像优化, 多阶段构建, 最小化部署]
 excerpt: "随着容器化技术的普及，Docker部署.NET项目已成为职场必备技能——相比传统部署方式，Docker具有环境一致、部署高效、跨平台等优势。本文基于前两篇的WebApiDemo项目，讲解如何用Docker打包.NET Core项目，包含多阶段构建、镜像瘦身、环境变量配置等核心技巧，实现最小化部署。"
+toc: true
 ---
-
 随着容器化技术的普及，Docker部署.NET项目已成为职场必备技能——相比传统部署方式，Docker具有环境一致、部署高效、跨平台等优势。本文基于前两篇的WebApiDemo项目，讲解如何用Docker打包.NET Core项目，包含多阶段构建、镜像瘦身、环境变量配置等核心技巧，实现最小化部署，适配Windows、Linux、WSL2等多种环境，新手也能快速上手。
 
 ## 一、环境准备

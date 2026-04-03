@@ -3,8 +3,6 @@ title: 标签
 layout: default
 ---
 
-# 标签
-
 {% for tag in site.tags %}
 ## {{ tag[0] }}
 
